@@ -18,3 +18,5 @@ modules:
     install:
       - org.mozilla.firefox
       - com.github.tchx84.Flatseal
+
+sign: false
