@@ -26,3 +26,4 @@ jobs:
         uses: blue-build/github-action@v1.11
         with:
           recipe: ${{ matrix.recipe }}
+          skip-if-available: 0
