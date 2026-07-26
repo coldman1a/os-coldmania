@@ -1,23 +1,27 @@
-name: bluebuild
+name: Build Coldmania OS
+
 on:
+  schedule:
+    - cron: "0 0 * * *" # Build daily at midnight
   push:
-    paths-ignore:
-      - "**.md"
-  workflow_dispatch:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
 
 jobs:
   bluebuild:
-    name: Build Custom Image
+    name: Build Coldmania
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
       id-token: write
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build image
+      - name: Build Coldmania Image
         uses: blue-build/github-action@v1.12
         with:
-          recipe: recipes/recipe.yml
+          recipe: recipe.yml
+          registry_namespace: ${{ github.repository_owner }}
