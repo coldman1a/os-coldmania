@@ -25,3 +25,5 @@ jobs:
         with:
           recipe: recipe.yml
           registry_namespace: ${{ github.repository_owner }}
+- name: cosign-installer
+  uses: sigstore/cosign-installer@v4.1.2
