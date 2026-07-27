@@ -1,2 +1,14 @@
 - name: cosign-installer
   uses: sigstore/cosign-installer@v4.1.2
+jobs:
+  example:
+    runs-on: ubuntu-latest
+
+    permissions: {}
+
+    name: Install Cosign
+    steps:
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@v4.1.0
+      - name: Check install!
+        run: cosign version
